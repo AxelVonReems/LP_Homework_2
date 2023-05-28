@@ -57,14 +57,13 @@ async def planet(update: Update, context: ContextTypes.DEFAULT_TYPE):
         'Uranus': ephem.Uranus,
         'Neptune': ephem.Neptune,
         'Pluto': ephem.Pluto,
+        'Moon': ephem.Moon,
     }
-    if update.message.text.split()[-1] in planets:
-        planet_name = planets.get(update.message.text.split()[-1])
-        planet = planet_name(date.today())
-        constellation = ephem.constellation(planet)
+    planet_name = update.message.text.split()[-1].capitalize()
+    if planet_name in planets:
         await context.bot.send_message(
             chat_id=update.effective_chat.id,
-            text=constellation
+            text=ephem.constellation(planets[planet_name](date.today()))
             )
     else:
         await context.bot.send_message(

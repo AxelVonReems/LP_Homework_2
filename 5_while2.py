@@ -23,7 +23,7 @@ questions_and_answers = {
 def ask_user(answers_dict):
     while True:
         question = input('Ведите свой вопрос: ')
-        if question in questions_and_answers.keys():
+        if question in questions_and_answers:
             print(questions_and_answers[question])
         elif question == 'Отвали':
             break
