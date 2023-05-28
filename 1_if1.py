@@ -17,7 +17,7 @@ def main():
     ask_age = input('Укажите ваш возраст: ')
     if int(ask_age) < 0:
         print('Вас не существует!')
-    if int(ask_age) <= 5:
+    elif int(ask_age) <= 5:
         print('Вам место в детском саду!')
     elif 6 < int(ask_age) <= 18:
         print('Вам место в школе!')
